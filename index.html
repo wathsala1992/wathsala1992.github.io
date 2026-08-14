@@ -2,11 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My GitHub Pages Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Green Corner | Plant Shop</title>
+    <style>
+        :root {
+            --primary-green: #2d5a27;
+            --soft-cream: #f4f6f0;
+            --dark-charcoal: #222222;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--soft-cream);
+            color: var(--dark-charcoal);
+        }
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://unsplash.com') center/cover;
+            color: white;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .plant-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .plant-card:hover {
+            transform: translateY(-5px);
+        }
+        .plant-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .plant-title {
+            font-size: 1.3rem;
+            margin: 15px 0 5px 0;
+        }
+        .plant-price {
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        .btn-add {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-add:hover {
+            background-color: #1e3d1a;
+        }
+        #cart-counter {
+            background: #ff5722;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my live site.</p>
+
+    <header>
+        <h2>🌿 The Green Corner</h2>
+        <div>Cart🛒<span id="cart-counter">0</span></div>
+    </header>
+
+    <div class="hero">
+        <h1>Bring Nature Indoors</h1>
+        <p>Aesthetic, low-maintenance plants delivered directly to your space.</p>
+    </div>
+
+    <div class="container">
+        <div class="plant-grid">
+            <!-- Plant Item 1 -->
+            <div class="plant-card">
+                <img class="plant-image" src="https://unsplash.com" alt="Monstera Deliciosa">
+                <div class="plant-title">Monstera Deliciosa</div>
+                <div class="plant-price">$35.00</div>
+                <button class="btn-add" onclick="addToCart('Monstera Deliciosa', 35)">Add to Cart</button>
+            </div>
+
+            <!-- Plant Item 2 -->
+            <div class="plant-card">
+                <img class="plant-image" src="https://unsplash.com" alt="Snake Plant">
+                <div class="plant-title">Snake Plant (Sansevieria)</div>
+                <div class="plant-price">$25.00</div>
+                <button class="btn-add" onclick="addToCart('Snake Plant', 25)">Add to Cart</button>
+            </div>
+
+            <!-- Plant Item 3 -->
+            <div class="plant-card">
+                <img class="plant-image" src="https://unsplash.com" alt="Fiddle Leaf Fig">
+                <div class="plant-title">Fiddle Leaf Fig</div>
+                <div class="plant-price">$45.00</div>
+                <button class="btn-add" onclick="addToCart('Fiddle Leaf Fig', 45)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
